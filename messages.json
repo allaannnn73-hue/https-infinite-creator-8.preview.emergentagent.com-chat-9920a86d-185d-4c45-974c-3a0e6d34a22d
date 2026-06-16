@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "Somiibo",
+    "description": "The name of the extension."
+  },
+  "appDescription": {
+    "message": "A free social media automation utility that organically grows your online presence.",
+    "description": "The description of the extension."
+  },
+  "btnTooltip": {
+    "message": "Somiibo",
+    "description": "Tooltip for the button."
+  }
+}
