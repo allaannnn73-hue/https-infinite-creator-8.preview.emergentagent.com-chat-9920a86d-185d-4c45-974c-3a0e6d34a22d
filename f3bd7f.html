@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root { --secondary-foreground: #94a3b8;
+        --card: #0f172a;
+        --primary: #0ea5e9;
+        --radius: 1rem;
+        --tertiary: #d946ef;
+        --secondary: #1e293b;
+        --border: #1e293b;
+        --ring: #0ea5e9;
+        --primary-foreground: #ffffff;
+        --background: #020617;
+        --input: #1e293b;
+        --foreground: #f8fafc; }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-background text-foreground flex flex-col relative font-sans overflow-x-hidden">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
+    <button class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center border border-border">
+      <iconify-icon icon="lucide:arrow-left" class="text-foreground text-xl"></iconify-icon>
+    </button>
+    <h1 class="text-lg font-heading font-bold">Sonic Studio</h1>
+    <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center border border-border">
+      <iconify-icon icon="lucide:info" class="text-foreground text-xl"></iconify-icon>
+    </div>
+  </header>
+
+  <!-- Main Studio -->
+  <main class="flex-1 px-6 py-6 pb-24">
+    <!-- Input Methods -->
+    <div class="flex gap-2 mb-6">
+      <button class="flex-1 py-3 px-2 rounded-xl bg-primary text-white flex flex-col items-center gap-1 shadow-lg shadow-primary/20">
+        <iconify-icon icon="lucide:type" class="text-xl"></iconify-icon>
+        <span class="text-[10px] font-bold uppercase">Text Prompt</span>
+      </button>
+      <button class="flex-1 py-3 px-2 rounded-xl bg-secondary border border-border flex flex-col items-center gap-1 hover:bg-secondary/80">
+        <iconify-icon icon="lucide:upload" class="text-xl"></iconify-icon>
+        <span class="text-[10px] font-bold uppercase">Upload Audio</span>
+      </button>
+      <button class="flex-1 py-3 px-2 rounded-xl bg-secondary border border-border flex flex-col items-center gap-1 hover:bg-secondary/80">
+        <iconify-icon icon="lucide:mic" class="text-xl"></iconify-icon>
+        <span class="text-[10px] font-bold uppercase">Hum / Record</span>
+      </button>
+    </div>
+
+    <!-- Main Prompt Area -->
+    <div class="mb-8">
+      <label class="text-xs font-bold text-secondary-foreground uppercase tracking-widest mb-2 block">Describe your masterpiece</label>
+      <div class="relative">
+        <textarea placeholder="A dark cinematic orchestral piece with glitchy electronic textures and a haunting female vocal..." class="w-full h-40 bg-card border border-border rounded-2xl p-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"></textarea>
+        <div class="absolute bottom-4 right-4 flex gap-2">
+          <button class="p-2 rounded-lg bg-secondary border border-border text-secondary-foreground hover:text-foreground">
+            <iconify-icon icon="lucide:sparkles" class="text-lg"></iconify-icon>
+          </button>
+          <button class="p-2 rounded-lg bg-secondary border border-border text-secondary-foreground hover:text-foreground">
+            <iconify-icon icon="lucide:history" class="text-lg"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expert Mode Section -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <iconify-icon icon="lucide:zap" class="text-tertiary text-lg"></iconify-icon>
+          <h3 class="text-sm font-bold uppercase tracking-widest">Expert Settings</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] font-bold text-secondary-foreground uppercase">Enabled</span>
+          <div class="w-10 h-5 bg-primary rounded-full relative p-0.5 cursor-pointer">
+            <div class="w-4 h-4 bg-white rounded-full ml-auto shadow-sm"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div class="space-y-2">
+          <label class="text-[10px] font-bold text-secondary-foreground uppercase">AI Model Selection</label>
+          <div class="relative">
+            <select class="w-full bg-secondary border border-border rounded-lg px-3 py-2 text-xs appearance-none focus:outline-none focus:ring-1 focus:ring-primary">
+              <option>Sonic-X (Uncensored)</option>
+              <option>MelodyGen-Pro</option>
+              <option>RhythmFlow v2</option>
+            </select>
+            <iconify-icon icon="lucide:chevron-down" class="absolute right-2 top-1/2 -translate-y-1/2 text-secondary-foreground pointer-events-none"></iconify-icon>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-[10px] font-bold text-secondary-foreground uppercase">Audio Quality</label>
+          <div class="relative">
+            <select class="w-full bg-secondary border border-border rounded-lg px-3 py-2 text-xs appearance-none focus:outline-none focus:ring-1 focus:ring-primary">
+              <option>Lossless (FLAC)</option>
+              <option>High (320kbps)</option>
+              <option>Standard (192kbps)</option>
+            </select>
+            <iconify-icon icon="lucide:chevron-down" class="absolute right-2 top-1/2 -translate-y-1/2 text-secondary-foreground pointer-events-none"></iconify-icon>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-[10px] font-bold text-secondary-foreground uppercase">BPM / Tempo</label>
+          <div class="flex items-center gap-2">
+            <input type="number" value="128" class="flex-1 bg-secondary border border-border rounded-lg px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-primary">
+            <span class="text-[10px] text-secondary-foreground">BPM</span>
+          </div>
+        </div>
+        <div class="space-y-2">
+          <label class="text-[10px] font-bold text-secondary-foreground uppercase">Key / Scale</label>
+          <div class="flex items-center gap-2">
+            <select class="flex-1 bg-secondary border border-border rounded-lg px-3 py-2 text-xs appearance-none focus:outline-none focus:ring-1 focus:ring-primary">
+              <option>C Minor</option>
+              <option>A Major</option>
+              <option>G# Phrygian</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced Sliders -->
+    <div class="space-y-6 mb-8">
+      <div class="space-y-2">
+        <div class="flex justify-between">
+          <label class="text-[10px] font-bold text-secondary-foreground uppercase">Model Creativity (Temperature)</label>
+          <span class="text-[10px] text-primary font-bold">0.85</span>
+        </div>
+        <div class="h-1.5 bg-secondary rounded-full overflow-hidden relative">
+          <div class="absolute inset-y-0 left-0 bg-primary w-[85%]"></div>
+        </div>
+      </div>
+      <div class="space-y-2">
+        <div class="flex justify-between">
+          <label class="text-[10px] font-bold text-secondary-foreground uppercase">Prompt Adherence (Top-P)</label>
+          <span class="text-[10px] text-primary font-bold">0.92</span>
+        </div>
+        <div class="h-1.5 bg-secondary rounded-full overflow-hidden relative">
+          <div class="absolute inset-y-0 left-0 bg-primary w-[92%]"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Generate Button -->
+    <button class="w-full py-4 rounded-2xl bg-gradient-to-r from-primary to-tertiary text-white font-heading font-bold text-lg shadow-xl shadow-primary/30 flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
+      <iconify-icon icon="lucide:zap" class="text-2xl animate-pulse"></iconify-icon>
+      Generate Masterpiece
+    </button>
+  </main>
+
+  <!-- Navigation -->
+  <nav class="absolute bottom-0 left-0 right-0 bg-background/95 backdrop-blur-xl border-t border-border px-8 py-4 flex items-center justify-between z-50">
+    <button class="flex flex-col items-center gap-1 text-secondary-foreground hover:text-foreground">
+      <iconify-icon icon="lucide:house" class="text-2xl"></iconify-icon>
+      <span class="text-[10px] font-bold uppercase">Home</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-primary">
+      <iconify-icon icon="lucide:plus-circle" class="text-2xl"></iconify-icon>
+      <span class="text-[10px] font-bold uppercase">Create</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-secondary-foreground hover:text-foreground">
+      <iconify-icon icon="lucide:layers" class="text-2xl"></iconify-icon>
+      <span class="text-[10px] font-bold uppercase">Library</span>
+    </button>
+    <button class="flex flex-col items-center gap-1 text-secondary-foreground hover:text-foreground">
+      <iconify-icon icon="lucide:settings" class="text-2xl"></iconify-icon>
+      <span class="text-[10px] font-bold uppercase">Expert</span>
+    </button>
+  </nav>
+</div>
+</body></html>

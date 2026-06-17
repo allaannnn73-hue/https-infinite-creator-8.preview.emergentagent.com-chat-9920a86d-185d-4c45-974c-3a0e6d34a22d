@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@100..900&family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss";
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-tertiary: var(--tertiary);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-destructive: var(--destructive);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --font-family-sans: var(--font-sans);
+        --font-family-heading: var(--font-heading);
+      }
+      :root {  }
+    </style>
+  </head>
+  <body>
+<div class="min-h-screen w-full bg-background text-foreground font-sans flex flex-col relative">
+  <!-- Top Navigation -->
+  <nav class="border-b border-border bg-card/50 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+          <iconify-icon icon="lucide:zap" class="text-primary-foreground text-xl"></iconify-icon>
+        </div>
+        <span class="text-xl font-heading font-bold tracking-tight">SonicAI <span class="text-primary">Expert</span></span>
+        <span class="ml-2 px-2 py-0.5 bg-tertiary/20 text-tertiary text-[10px] font-bold uppercase rounded border border-tertiary/30">All Free</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="p-2 hover:bg-accent rounded-full transition-colors relative">
+          <iconify-icon icon="lucide:bell" class="text-xl"></iconify-icon>
+          <span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+        </button>
+        <div class="h-8 w-8 rounded-full bg-secondary border border-border overflow-hidden">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Avatar" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Unlocked Announcement Banner -->
+  <div class="bg-primary/10 border-b border-primary/20 py-3">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-center gap-3">
+      <iconify-icon icon="lucide:party-popper" class="text-primary text-xl"></iconify-icon>
+      <p class="text-sm font-medium">
+        <span class="font-bold">Celebration!</span> All expert models and premium features are now <span class="text-primary font-bold">100% FREE</span> for all creators.
+      </p>
+    </div>
+  </div>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Left Column: Settings -->
+    <div class="lg:col-span-5 space-y-6">
+      <div class="bg-card border border-border rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-xl font-heading font-bold flex items-center gap-2">
+            <iconify-icon icon="lucide:pencil" class="text-primary"></iconify-icon>
+            Create Music
+          </h2>
+          <div class="flex bg-secondary rounded-lg p-1">
+            <button class="px-3 py-1.5 text-xs font-bold bg-background rounded shadow-sm">AI Generate</button>
+            <button class="px-3 py-1.5 text-xs font-medium text-muted-foreground hover:text-foreground">Upload Audio</button>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Model Selection -->
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <label class="text-sm font-medium text-muted-foreground">AI Generation Model</label>
+              <span class="text-[10px] font-bold text-tertiary flex items-center gap-1">
+                <iconify-icon icon="lucide:unlock"></iconify-icon> ALL UNLOCKED
+              </span>
+            </div>
+            <div class="grid grid-cols-1 gap-3">
+              <button class="flex items-center justify-between p-4 rounded-xl border-2 border-primary bg-primary/5 text-left transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 bg-primary/20 rounded-lg group-hover:scale-110 transition-transform">
+                    <iconify-icon icon="lucide:flame" class="text-primary text-xl"></iconify-icon>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <p class="font-semibold">Sonic-X Uncensored</p>
+                      <span class="px-1.5 py-0.5 bg-tertiary text-white text-[8px] font-bold rounded">FREE</span>
+                    </div>
+                    <p class="text-xs text-muted-foreground">Highest performance, no filters</p>
+                  </div>
+                </div>
+                <iconify-icon icon="lucide:check-circle" class="text-primary text-xl"></iconify-icon>
+              </button>
+              
+              <button class="flex items-center justify-between p-4 rounded-xl border border-border bg-secondary/30 text-left hover:border-primary/50 transition-all group">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 bg-muted rounded-lg group-hover:scale-110 transition-transform">
+                    <iconify-icon icon="lucide:shield" class="text-muted-foreground text-xl"></iconify-icon>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <p class="font-semibold">Sonic-V3 Standard</p>
+                      <span class="px-1.5 py-0.5 bg-tertiary text-white text-[8px] font-bold rounded">FREE</span>
+                    </div>
+                    <p class="text-xs text-muted-foreground">Balanced, safety-aligned</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Upload Section (Contextual) -->
+          <div class="p-4 border-2 border-dashed border-border rounded-xl bg-secondary/20 flex flex-col items-center justify-center text-center gap-2 hover:border-primary/50 cursor-pointer transition-all">
+            <iconify-icon icon="lucide:upload-cloud" class="text-3xl text-muted-foreground"></iconify-icon>
+            <div>
+              <p class="text-sm font-semibold">Upload Reference Audio</p>
+              <p class="text-xs text-muted-foreground">MP3, WAV, FLAC (Max 50MB)</p>
+            </div>
+          </div>
+
+          <!-- Prompt Area -->
+          <div>
+            <label class="block text-sm font-medium text-muted-foreground mb-2">Describe your track</label>
+            <textarea class="w-full bg-secondary/50 border border-border rounded-xl p-4 min-h-[120px] focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="A heavy metal track about cybernetic rebellion with aggressive drums and distorted synthesizers..."></textarea>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="save-to-library" class="w-4 h-4 rounded border-border text-primary focus:ring-primary" checked>
+            <label for="save-to-library" class="text-sm text-muted-foreground cursor-pointer">Auto-register to Library with prompt</label>
+          </div>
+
+          <button class="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-4 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+            <iconify-icon icon="lucide:play" class="text-xl"></iconify-icon>
+            Generate & Register
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Preview & History -->
+    <div class="lg:col-span-7 space-y-6">
+      <!-- Active Generation / Hero -->
+      <div class="relative rounded-2xl overflow-hidden aspect-video border border-border group">
+        <img src="https://uxmagic.blob.core.windows.net/public/agent-images/img-free-unlocked-banner-1781670064504-g5lsjsa0eve.png" alt="All Free Unlocked" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="px-2 py-0.5 bg-tertiary/20 text-tertiary text-[10px] font-bold uppercase tracking-wider rounded border border-tertiary/30">Premium Unlocked</span>
+          </div>
+          <h3 class="text-3xl font-heading font-bold mb-2">Freedom to Create</h3>
+          <p class="text-muted-foreground max-w-md">No credits, no limits. Every tool, every model, and every export is now completely free for everyone.</p>
+        </div>
+      </div>
+
+      <!-- Recent Creations -->
+      <div class="bg-card border border-border rounded-2xl p-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-lg font-heading font-bold">Recent Generations</h2>
+          <button class="text-sm text-primary font-medium hover:underline">View All</button>
+        </div>
+        
+        <div class="space-y-4">
+          <!-- Track Item -->
+          <div class="flex items-center gap-4 p-3 rounded-xl hover:bg-secondary/30 transition-colors border border-transparent hover:border-border group">
+            <div class="w-16 h-16 rounded-lg bg-secondary relative flex-shrink-0 overflow-hidden">
+               <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=300&h=300&fit=crop" class="w-full h-full object-cover">
+               <button class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                 <iconify-icon icon="lucide:play" class="text-white text-2xl"></iconify-icon>
+               </button>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-semibold truncate">Cybernetic Rebellion</h4>
+              <p class="text-xs text-muted-foreground">Industrial Metal • 3:42</p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-right hidden sm:block">
+                <p class="text-xs text-muted-foreground">Model</p>
+                <p class="text-[10px] font-bold text-tertiary">UNLOCKED</p>
+              </div>
+              <button class="p-2 hover:bg-secondary rounded-lg transition-colors">
+                <iconify-icon icon="lucide:more-horizontal"></iconify-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Bottom Mini Player -->
+  <div class="bg-card/80 backdrop-blur-xl border-t border-border p-4 sticky bottom-0">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 w-1/3">
+        <div class="w-12 h-12 rounded bg-secondary overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?w=100&h=100&fit=crop" class="w-full h-full object-cover">
+        </div>
+        <div class="hidden sm:block">
+          <p class="text-sm font-semibold truncate">Cybernetic Rebellion</p>
+          <p class="text-xs text-muted-foreground">Sonic-X Engine</p>
+        </div>
+      </div>
+      
+      <div class="flex flex-col items-center gap-1 flex-1">
+        <div class="flex items-center gap-6">
+          <button class="text-muted-foreground hover:text-foreground"><iconify-icon icon="lucide:skip-back" class="text-xl"></iconify-icon></button>
+          <button class="w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center"><iconify-icon icon="lucide:pause" class="text-xl"></iconify-icon></button>
+          <button class="text-muted-foreground hover:text-foreground"><iconify-icon icon="lucide:skip-forward" class="text-xl"></iconify-icon></button>
+        </div>
+        <div class="w-full max-w-md bg-secondary h-1 rounded-full overflow-hidden">
+          <div class="bg-primary h-full w-1/3"></div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-4 w-1/3">
+        <iconify-icon icon="lucide:volume-2" class="text-muted-foreground"></iconify-icon>
+        <div class="w-20 bg-secondary h-1 rounded-full hidden sm:block">
+          <div class="bg-foreground h-full w-3/4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>
